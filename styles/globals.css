@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root{
+  --bg:#0b0f14;
+  --panel:#071019;
+  --muted:#9aa6b2;
+  --glass: rgba(255,255,255,0.04);
+  --glow: 0 48px 96px rgba(0,255,209,0.06);
+  --radius:12px;
+  --mono: "SFMono-Regular",Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  --term-bg:#001216;
+  --term-text:#8fffdc;
+  --term-muted:#57c9b1;
+  --accent:#00ffd1;
+  --accent-2:#6df0ff;
+}
+
+html,body,#__next{height:100%}
+body{
+  margin:0;
+  font-family: 'Share Tech Mono', SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  color:var(--term-text);
+  background:
+    radial-gradient(800px 400px at 10% 10%, rgba(0,255,209,0.03), transparent 6%),
+    var(--term-bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  letter-spacing:0.6px;
+  font-size:15px;
+}
+
+/* Subtle scanline effect for panels */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:28px;
+  background:
+    linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
+    transparent;
+  background-size: 100% 24px;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:40;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  box-shadow: var(--glow);
+  margin-bottom:18px;
+  border-radius:var(--radius);
+  display:flex;
+  align-items:center;
+  justify-content:center; /* centers the title-block horizontally */
+  padding:18px 20px;
+}
+
+/* Title */
+.site-title{
+  margin:0;
+  font-size:20px;
+  font-weight:800;
+  color:var(--accent);
+  letter-spacing:0.6px;
+}
+
+.title-block{
+  display:flex;
+  flex-direction:column;
+  align-items:center; /* center title and nav */
+  gap:12px;
+}
+
+/* Make nav buttons sit under title */
+.site-nav{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Button base */
+.nav-link{
+  font-family: 'Share Tech Mono', monospace;
+  background:rgba(0,0,0,0.35);
+  border:1px solid rgba(109,240,255,0.06);
+  color:var(--term-muted);
+  padding:10px 18px;
+  border-radius:6px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  transition: all .16s ease;
+}
+
+/* Hover: background glow */
+.nav-link:hover{
+  color:var(--term-bg);
+  background: linear-gradient(180deg, rgba(0,255,209,0.16), rgba(109,240,255,0.06));
+  box-shadow: 0 8px 36px rgba(0,255,209,0.10), 0 0 28px rgba(0,255,209,0.06);
+}
+
+.top, .project-card{
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(255,255,255,0.01));
+  border:1px solid rgba(109,240,255,0.06);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  color:var(--term-text);
+}
+
+/* Skill badge */
+.skill-badge{
+  background: linear-gradient(90deg, rgba(0,255,209,0.06), rgba(109,240,255,0.03));
+  color:var(--accent-2);
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:13px;
+  border:1px solid rgba(0,255,209,0.08);
+}
+
+/* Links and text */
+a{
+  color:var(--term-text);
+  text-decoration:none;
+  position:relative;
+}
+a::after{
+  content:'▌';
+  margin-left:6px;
+  opacity:0;
+  transition:opacity .18s;
+}
+a:hover::after{ opacity:1; color:var(--accent); }
+
+h1,h2,h3{
+  font-family: 'Share Tech Mono', monospace;
+  color:var(--accent-2);
+  letter-spacing:1px;
+}
+p,li{color:var(--muted)}
+
+code, pre, kbd {
+  font-family: 'Share Tech Mono', monospace;
+  font-size:0.95em;
+}
+
+/* Slightly reduce heading sizes to match terminal feel */
+.site-title{ font-size:18px; font-weight:700; }
+h2{ font-size:18px; }
+h3{ font-size:15px; }
+
+/* Footer */
+footer{color:rgba(170,200,210,0.6); font-size:13px}
+
+/* Responsive */
+@media (max-width:720px){
+  .site-header .inner{flex-direction:column; align-items:flex-start; gap:8px}
+  .site-nav{width:100%; justify-content:space-between}
+  .container{padding:18px}
+}
