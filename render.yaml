@@ -1,0 +1,12 @@
+services:
+- type: web
+  name: project-portfolio
+  runtime: node
+  plan: starter
+  repo: https://github.com/csd0011/project_portfolio
+  buildCommand: npm ci && npm run build
+  startCommand: npm start
+  autoDeploy: false
+  envVars:
+  - key: NODE_ENV
+    value: production
