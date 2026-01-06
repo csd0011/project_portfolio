@@ -2,9 +2,9 @@ services:
 - type: web
   name: project-portfolio
   runtime: node
-  plan: starter
+  plan: free
   repo: https://github.com/csd0011/project_portfolio
-  buildCommand: npm ci && npm run build
+  buildCommand: npm install && npm run build
   startCommand: npm start
   autoDeploy: false
   envVars:
